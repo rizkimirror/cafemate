@@ -1,8 +1,7 @@
 import React, {Component} from 'react'
 import { Icon } from 'native-base'
 import { View } from 'react-native'
-import { createMaterialBottomTabNavigator } from 'react-navigation-material-bottom-tabs'
-import { StackNavigator } from 'react-navigation'
+import { StackNavigator, createBottomTabNavigator } from 'react-navigation'
 
 // Import screen here
 
@@ -17,14 +16,14 @@ import ProfileContainer from './src/containers/ProfileContainer'
 import TestContainer from './src/containers/TestContainer'
 
 // Call imported screen here by its name
-const Main = createMaterialBottomTabNavigator({
+const Main = createBottomTabNavigator({
   Home:{ 
     screen: HomeContainer, 
     navigationOptions: {
       tabBarLabel: "Home",
       tabBarColor: "#fff",
       tabBarIcon: ({ tintColor, focused }) => (
-        <Icon type={'Entypo'} name={'home'} style={{ color: "#2c8dfe", fontSize: 24 }} />
+        <Icon type={'Entypo'} name={'home'} style={{ color: focused ? "#2c8dfe" : "#ccc", fontSize: 24 }} />
       )
     }
   },
@@ -34,17 +33,24 @@ const Main = createMaterialBottomTabNavigator({
       tabBarLabel: "Friends",
       tabBarColor: "#fff",
       tabBarIcon: ({ tintColor, focused }) => (
-        <Icon type={'Ionicons'} name={'md-contacts'} style={{ color: "#2c8dfe", fontSize: 24 }} />
+        <Icon type={'Ionicons'} name={'md-contacts'} style={{ color: focused ? "#2c8dfe" : "#ccc", fontSize: 24 }} />
       )
     }
   },
   Place:{ 
     screen: GetStartedContainer,
     navigationOptions: {
-      tabBarLabel: "Open Place",
       tabBarColor: "#fff",
       tabBarIcon: ({ tintColor, focused }) => (
-        <Icon type={'MaterialIcons'} name={'add-box'} style={{ color: "#2c8dfe", fontSize: 24 }} />
+        <View style={{
+          width: 100,
+          height: 50,
+          backgroundColor: '#2c8dfe',
+          alignItems: 'center',
+          justifyContent: 'center'
+        }}>
+          <Icon type={'MaterialIcons'} name={'add-box'} style={{ color: focused ? "#fff" : "#fff", fontSize: 30 }} />  
+        </View>
       )
     }
   },
@@ -54,7 +60,7 @@ const Main = createMaterialBottomTabNavigator({
       tabBarLabel: "Chat",
       tabBarColor: "#fff",
       tabBarIcon: ({ tintColor, focused }) => (
-        <Icon type={'Ionicons'} name={'ios-chatboxes'} style={{ color: "#2c8dfe", fontSize: 24 }} />
+        <Icon type={'Ionicons'} name={'ios-chatboxes'} style={{ color: focused ? "#2c8dfe" : "#ccc", fontSize: 24 }} />
       )
     }
   },
@@ -64,22 +70,23 @@ const Main = createMaterialBottomTabNavigator({
       tabBarLabel: "Profile",
       tabBarColor: "#fff",
       tabBarIcon: ({ tintColor, focused }) => (
-        <Icon type={'MaterialIcons'} name={'person'} style={{ color: "#2c8dfe", fontSize: 24 }} />
+        <Icon type={'MaterialIcons'} name={'person'} style={{ color: focused ? "#2c8dfe" : "#ccc", fontSize: 24 }} />
       )
     }
   }
 },{
   initialRouteName: 'Chat',
-  activeTintColor: '#2c8dfe',
-  barStyle: { backgroundColor: '#fff' },
-  headerMode: 'none'
+  tabBarOptions:{
+    activeTintColor: '#2c8dfe',
+    showLabel: false
+  }
 })
 
 const Navigators = StackNavigator({
   Main: { screen: Main },
   TestContainer: { screen: TestContainer }
 },{
-  initialRouteName: 'TestContainer',
+  initialRouteName: 'Main',
   headerMode: 'none'
 })
 
