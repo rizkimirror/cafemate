@@ -6,7 +6,7 @@ export default class GetStarted extends Component{
   render(){
     return(
       <Container style={styles.container}>
-        <StatusBar backgroundColor={'#555BFF'}/>
+        <StatusBar backgroundColor={'#2c8dfe'}/>
         <Content contentContainerStyle={styles.contentStyle}>
 
           <View style={styles.titleWrapper}>
@@ -22,7 +22,7 @@ export default class GetStarted extends Component{
 
 const styles = StyleSheet.create({
   container:{
-    backgroundColor: '#555BFF'
+    backgroundColor: '#2c8dfe'
   },
   contentStyle:{
     flex: 1,
