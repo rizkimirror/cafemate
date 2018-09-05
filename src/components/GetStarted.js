@@ -1,20 +1,70 @@
 import React, { Component } from 'react'
 import { View, Text, StyleSheet, StatusBar } from 'react-native'
-import { Container, Content } from 'native-base'
+import { Container, Content, Button, Icon, Radio } from 'native-base'
+import { responsiveFontSize } from 'react-native-rescomponent'
 
 export default class GetStarted extends Component{
   render(){
     return(
       <Container style={styles.container}>
-        <StatusBar backgroundColor={'#555BFF'}/>
+        <StatusBar backgroundColor={'#2C8DFE'}/>
         <Content contentContainerStyle={styles.contentStyle}>
 
           <View style={styles.titleWrapper}>
-            <Text style={styles.whiteColor}>Welcome to cafemates development</Text>
-            <Text style={styles.whiteColor}>Let's Get started</Text>
+            <Text style={styles.whiteColor}>What gender you looking for ?</Text>
+              <View style={{flexDirection: 'row', justifyContent: 'center', paddingTop: 10}}>
+                <Radio
+                  color={"#fff"}
+                  selectedColor={"#fff"}
+                  selected={true}
+                />
+                <Text style={styles.whiteColor}>  Men</Text>
+              </View>
+              <View style={{flexDirection: 'row', justifyContent: 'center', paddingTop: 10}}>
+                <Radio
+                  color={"#fff"}
+                  selectedColor={"#fff"}
+                  selected={false}
+                />
+                <Text style={styles.whiteColor}>  Woman</Text>
+              </View>
+              <View style={{flexDirection: 'row', justifyContent: 'center', paddingTop: 10}}>
+                <Radio
+                  color={"#fff"}
+                  selectedColor={"#fff"}
+                  selected={false}
+                />
+                <Text style={styles.whiteColor}>  Custom</Text>
+              </View>
           </View>
-
         </Content>
+        <View style={{flexDirection: 'row', justifyContent: 'center', paddingBottom: 50}}>
+            <Button onPress={this.props.actionButton} style={{
+              alignSelf:'center',
+              justifyContent:'center',
+              borderRadius:5,
+              backgroundColor: '#2C8DFE',
+              borderWidth: 2,
+              borderColor: '#fff',
+              width: 120,
+              marginRight: 10
+            }}>
+              <Text style={{alignSelf:'center', fontSize: responsiveFontSize(2), color: '#fff'}}>Back</Text>
+            </Button>
+            <Button onPress={this.props.actionButton} style={{
+              alignSelf:'center',
+              justifyContent:'center',
+              borderRadius:5,
+              backgroundColor: '#2C8DFE',
+              borderWidth: 2,
+              borderColor: '#fff',
+              width: 120,
+              marginLeft: 10
+              
+            }}>
+              <Text style={{alignSelf:'center', fontSize: responsiveFontSize(2), color: '#fff'}}>Next</Text>
+            </Button>
+          </View>
       </Container>
     )
   }
@@ -22,7 +72,7 @@ export default class GetStarted extends Component{
 
 const styles = StyleSheet.create({
   container:{
-    backgroundColor: '#555BFF'
+    backgroundColor: '#2C8DFE'
   },
   contentStyle:{
     flex: 1,
@@ -30,11 +80,13 @@ const styles = StyleSheet.create({
     justifyContent: 'center'
   },
   titleWrapper:{
-    alignItems: 'center',
+    alignItems: 'flex-start',
     padding:10,
     marginBottom:5
   },
   whiteColor:{
-    color: '#fff'
+    color: '#fff',
+    alignSelf:'center', 
+    fontSize: responsiveFontSize(3)
   }
 })
