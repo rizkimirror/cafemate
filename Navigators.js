@@ -14,6 +14,8 @@ import ProfileContainer from './src/containers/ProfileContainer'
 
 // Callable Screens
 import TestContainer from './src/containers/TestContainer'
+import WelcomeScreenContainer from './src/containers/WelcomeScreenContainer'
+import SplashScreenContainer from './src/containers/SplashScreenContainer'
 
 // Call imported screen here by its name
 const Main = createBottomTabNavigator({
@@ -84,9 +86,11 @@ const Main = createBottomTabNavigator({
 
 const Navigators = StackNavigator({
   Main: { screen: Main },
-  TestContainer: { screen: TestContainer }
+  GetStartedContainer: { screen: GetStartedContainer },
+  WelcomeScreenContainer: { screen: WelcomeScreenContainer},
+  SplashScreenContainer: { screen: SplashScreenContainer}
 },{
-  initialRouteName: 'Main',
+  initialRouteName: 'SplashScreenContainer',
   headerMode: 'none'
 })
 
