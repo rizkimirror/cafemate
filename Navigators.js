@@ -1,6 +1,6 @@
 import React, {Component} from 'react'
 import { Icon } from 'native-base'
-import { View } from 'react-native'
+import { View, Text } from 'react-native'
 import { StackNavigator, createBottomTabNavigator } from 'react-navigation'
 
 // Import screen here
@@ -25,7 +25,16 @@ const Main = createBottomTabNavigator({
       tabBarLabel: "Home",
       tabBarColor: "#fff",
       tabBarIcon: ({ tintColor, focused }) => (
-        <Icon type={'Entypo'} name={'home'} style={{ color: focused ? "#2c8dfe" : "#ccc", fontSize: 24 }} />
+        <View style={{
+          width: 100,
+          height: 50,
+          backgroundColor: '#fff',
+          alignItems: 'center',
+          justifyContent: 'center'
+        }}>
+          <Icon type={'Entypo'} name={'home'} style={{ color: focused ? "#2c8dfe" : "#ccc", fontSize: 24 }} />
+          <Text style={{color: focused ? "#2c8dfe" : "#ccc"}}>Home</Text>
+        </View>
       )
     }
   },
@@ -35,7 +44,16 @@ const Main = createBottomTabNavigator({
       tabBarLabel: "Friends",
       tabBarColor: "#fff",
       tabBarIcon: ({ tintColor, focused }) => (
-        <Icon type={'Ionicons'} name={'md-contacts'} style={{ color: focused ? "#2c8dfe" : "#ccc", fontSize: 24 }} />
+        <View style={{
+          width: 100,
+          height: 50,
+          backgroundColor: '#fff',
+          alignItems: 'center',
+          justifyContent: 'center'
+        }}>
+          <Icon type={'Ionicons'} name={'md-contacts'} style={{ color: focused ? "#2c8dfe" : "#ccc", fontSize: 24 }} />
+          <Text style={{color: focused ? "#2c8dfe" : "#ccc"}}>Friends</Text>
+        </View>
       )
     }
   },
@@ -51,7 +69,7 @@ const Main = createBottomTabNavigator({
           alignItems: 'center',
           justifyContent: 'center'
         }}>
-          <Icon type={'MaterialIcons'} name={'add-box'} style={{ color: focused ? "#fff" : "#fff", fontSize: 30 }} />  
+          <Icon type={'MaterialIcons'} name={'add-box'} style={{ color: focused ? "#fff" : "#fff", fontSize: 30 }} /> 
         </View>
       )
     }
@@ -62,7 +80,16 @@ const Main = createBottomTabNavigator({
       tabBarLabel: "Chat",
       tabBarColor: "#fff",
       tabBarIcon: ({ tintColor, focused }) => (
-        <Icon type={'Ionicons'} name={'ios-chatboxes'} style={{ color: focused ? "#2c8dfe" : "#ccc", fontSize: 24 }} />
+        <View style={{
+          width: 100,
+          height: 50,
+          backgroundColor: '#fff',
+          alignItems: 'center',
+          justifyContent: 'center'
+        }}>
+          <Icon type={'Ionicons'} name={'ios-chatboxes'} style={{ color: focused ? "#2c8dfe" : "#ccc", fontSize: 24 }} />
+          <Text style={{color: focused ? "#2c8dfe" : "#ccc"}}>Chat</Text>
+        </View>
       )
     }
   },
@@ -72,12 +99,21 @@ const Main = createBottomTabNavigator({
       tabBarLabel: "Profile",
       tabBarColor: "#fff",
       tabBarIcon: ({ tintColor, focused }) => (
-        <Icon type={'MaterialIcons'} name={'person'} style={{ color: focused ? "#2c8dfe" : "#ccc", fontSize: 24 }} />
+        <View style={{
+          width: 100,
+          height: 50,
+          backgroundColor: '#fff',
+          alignItems: 'center',
+          justifyContent: 'center'
+        }}>
+          <Icon type={'MaterialIcons'} name={'person'} style={{ color: focused ? "#2c8dfe" : "#ccc", fontSize: 24 }} />
+          <Text style={{color: focused ? "#2c8dfe" : "#ccc"}}>Profile</Text>
+        </View>
       )
     }
   }
 },{
-  initialRouteName: 'Chat',
+  initialRouteName: 'Home',
   tabBarOptions:{
     activeTintColor: '#2c8dfe',
     showLabel: false
@@ -90,7 +126,7 @@ const Navigators = StackNavigator({
   WelcomeScreenContainer: { screen: WelcomeScreenContainer},
   SplashScreenContainer: { screen: SplashScreenContainer}
 },{
-  initialRouteName: 'SplashScreenContainer',
+  initialRouteName: 'Main',
   headerMode: 'none'
 })
 
