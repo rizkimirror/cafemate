@@ -1,10 +1,10 @@
 import React, { Component } from 'react'
-import Test from '../components/Test'
+import OpenPlace from '../components/OpenPlace'
 
-export default class TestContainer extends Component{
+export default class OpenPlaceContainer extends Component{
   render(){
     return(
-      <Test
+      <OpenPlace
         gotoMain={() => this.props.navigation.navigate('Main')}
       />
     )

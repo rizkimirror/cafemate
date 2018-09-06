@@ -4,31 +4,27 @@ import { Container, Content, Button  } from 'native-base'
 import { responsiveFontSize } from 'react-native-rescomponent'
 import logo from '../assets/logo/iconturbine.png'
 
-export default class WelcomeScreen extends Component{
+export default class Introducing extends Component{
   render(){
     return(
       <Container style={styles.container}>
         <StatusBar backgroundColor={'#2C8DFE'}/>
         <Content contentContainerStyle={styles.contentStyle}>
           <View>
-          <Image source={logo} style={styles.logo}/>
+            <Image source={logo} style={styles.logo}/>
           </View>
           <View style={styles.titleWrapper}>
-            
-            <Text style={styles.whiteColor}>Welcome to Cafemates, here are will find you with soulmate, and directly give you n opportunity to find him/her. No chit-chat on your messaging.</Text>
+            <Text style={styles.whiteColor}>
+              Welcome to Cafemates, here are will find 
+              you with soulmate, and directly give you 
+              an opportunity to find him/her No chit-chat 
+              on your messaging.
+            </Text>
           </View>
         </Content>
-        <View style= {{paddingBottom:50}} >
-          <Button onPress={this.props.actionButton} style={{
-              alignSelf:'center',
-              justifyContent:'center',
-              borderRadius:5,
-              backgroundColor: '#2C8DFE',
-              borderWidth: 2,
-              borderColor: '#fff',
-              width: 250
-            }}>
-              <Text style={{alignSelf:'center', fontSize: responsiveFontSize(2), color: '#fff'}}>Next</Text>
+        <View style={styles.bottomPadding}>
+          <Button onPress={this.props.actionButton} style={styles.nextButton}>
+            <Text style={styles.buttonNextText}>Next</Text>
           </Button>
         </View>
       </Container>
@@ -41,8 +37,9 @@ const styles = StyleSheet.create({
     backgroundColor: '#2C8DFE'
   },
   logo: {
-    width: 200,
-    height: 250
+    width: 150,
+    height: 150,
+    resizeMode: 'center'
   },
   contentStyle:{
     flex: 1,
@@ -58,9 +55,26 @@ const styles = StyleSheet.create({
   whiteColor:{
     color: '#fff',
     alignItems: 'center',
+    textAlign: 'center',
     fontSize: responsiveFontSize(2),
     padding:10,
     marginBottom:5
-    
+  },
+  nextButton:{
+    alignSelf:'center',
+    justifyContent:'center',
+    borderRadius:5,
+    backgroundColor: '#2C8DFE',
+    borderWidth: 2,
+    borderColor: '#fff',
+    width: 250
+  },
+  bottomPadding:{
+    paddingBottom:50
+  },
+  buttonNextText:{
+    alignSelf:'center', 
+    fontSize: responsiveFontSize(2), 
+    color: '#fff'
   }
 })

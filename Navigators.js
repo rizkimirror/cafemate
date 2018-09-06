@@ -1,23 +1,28 @@
+// Imports
 import React, {Component} from 'react'
-import { Icon } from 'native-base'
+import Entypo from 'react-native-vector-icons/Entypo'
+import Ionicons from 'react-native-vector-icons/Ionicons'
+import MaterialIcons from 'react-native-vector-icons/MaterialIcons'
 import { View, Text } from 'react-native'
 import { StackNavigator, createBottomTabNavigator } from 'react-navigation'
-
-// Import screen here
+import { Animated, Easing } from 'react-native';
 
 // Main Screen
-import GetStartedContainer from './src/containers/GetStartedContainer'
+import OpenPlaceContainer from './src/containers/OpenPlaceContainer'
 import HomeContainer from './src/containers/HomeContainer'
 import FriendsContainer from './src/containers/FriendsContainer'
 import ChatContainer from './src/containers/ChatContainer'
 import ProfileContainer from './src/containers/ProfileContainer'
 
+// GetStarted Screen
+import InterestedContainer from './src/containers/InterestedContainer'
+import IntroducingContainer from './src/containers/IntroducingContainer'
+import GenderContainer from './src/containers/GenderContainer'
+
 // Callable Screens
-import TestContainer from './src/containers/TestContainer'
-import WelcomeScreenContainer from './src/containers/WelcomeScreenContainer'
 import SplashScreenContainer from './src/containers/SplashScreenContainer'
 
-// Call imported screen here by its name
+// Main Screens Navigator
 const Main = createBottomTabNavigator({
   Home:{ 
     screen: HomeContainer, 
@@ -32,8 +37,8 @@ const Main = createBottomTabNavigator({
           alignItems: 'center',
           justifyContent: 'center'
         }}>
-          <Icon type={'Entypo'} name={'home'} style={{ color: focused ? "#2c8dfe" : "#ccc", fontSize: 24 }} />
-          <Text style={{color: focused ? "#2c8dfe" : "#ccc"}}>Home</Text>
+          <Entypo name={'home'} style={{ color: focused ? tintColor : "#ccc", fontSize: 24 }} />
+          <Text style={{color: focused ? tintColor : "#ccc"}}>Home</Text>
         </View>
       )
     }
@@ -51,17 +56,17 @@ const Main = createBottomTabNavigator({
           alignItems: 'center',
           justifyContent: 'center'
         }}>
-          <Icon type={'Ionicons'} name={'md-contacts'} style={{ color: focused ? "#2c8dfe" : "#ccc", fontSize: 24 }} />
-          <Text style={{color: focused ? "#2c8dfe" : "#ccc"}}>Friends</Text>
+          <Ionicons name={'md-contacts'} style={{ color: focused ? tintColor : "#ccc", fontSize: 24 }} />
+          <Text style={{color: focused ? tintColor : "#ccc"}}>Friends</Text>
         </View>
       )
     }
   },
   Place:{ 
-    screen: GetStartedContainer,
+    screen: OpenPlaceContainer,
     navigationOptions: {
       tabBarColor: "#fff",
-      tabBarIcon: ({ tintColor, focused }) => (
+      tabBarIcon: ({ focused }) => (
         <View style={{
           width: 100,
           height: 50,
@@ -69,7 +74,7 @@ const Main = createBottomTabNavigator({
           alignItems: 'center',
           justifyContent: 'center'
         }}>
-          <Icon type={'MaterialIcons'} name={'add-box'} style={{ color: focused ? "#fff" : "#fff", fontSize: 30 }} /> 
+          <MaterialIcons name={'add-box'} style={{ color: focused ? "#fff" : "#fff", fontSize: 30 }} /> 
         </View>
       )
     }
@@ -87,8 +92,8 @@ const Main = createBottomTabNavigator({
           alignItems: 'center',
           justifyContent: 'center'
         }}>
-          <Icon type={'Ionicons'} name={'ios-chatboxes'} style={{ color: focused ? "#2c8dfe" : "#ccc", fontSize: 24 }} />
-          <Text style={{color: focused ? "#2c8dfe" : "#ccc"}}>Chat</Text>
+          <Ionicons name={'ios-chatboxes'} style={{ color: focused ? tintColor : "#ccc", fontSize: 24 }} />
+          <Text style={{color: focused ? tintColor : "#ccc"}}>Chat</Text>
         </View>
       )
     }
@@ -106,8 +111,8 @@ const Main = createBottomTabNavigator({
           alignItems: 'center',
           justifyContent: 'center'
         }}>
-          <Icon type={'MaterialIcons'} name={'person'} style={{ color: focused ? "#2c8dfe" : "#ccc", fontSize: 24 }} />
-          <Text style={{color: focused ? "#2c8dfe" : "#ccc"}}>Profile</Text>
+          <MaterialIcons name={'person'} style={{ color: focused ? tintColor : "#ccc", fontSize: 24 }} />
+          <Text style={{color: focused ? tintColor : "#ccc"}}>Profile</Text>
         </View>
       )
     }
@@ -120,13 +125,49 @@ const Main = createBottomTabNavigator({
   }
 })
 
+// Setup Screens Navigator
+const Setup = StackNavigator({
+  InterestedContainer: { screen: InterestedContainer },
+  IntroducingContainer: { screen: IntroducingContainer },
+  GenderContainer: { screen: GenderContainer }
+},{
+  initialRouteName: 'InterestedContainer',
+  headerMode: 'none',
+  transitionConfig: () => {
+    return {
+      transitionSpec: {
+        duration: 300,
+        easing: Easing.out(Easing.poly(4)),
+        timing: Animated.timing,
+        useNativeDriver: true,
+      },
+      screenInterpolator: ({ layout, position, scene }) => {
+        const { index } = scene
+        const { initWidth } = layout
+  
+        const translateX = position.interpolate({
+          inputRange: [index - 1, index, index + 1],
+          outputRange: [-initWidth, 0, 0]
+        })
+  
+        const opacity = position.interpolate({
+          inputRange: [index - 1, index - 0.99, index],
+          outputRange: [0, 1, 1]
+        })
+  
+        return { opacity, transform: [{ translateX }] }
+      }
+    }
+  }
+})
+
+// Root of Navigators
 const Navigators = StackNavigator({
   Main: { screen: Main },
-  GetStartedContainer: { screen: GetStartedContainer },
-  WelcomeScreenContainer: { screen: WelcomeScreenContainer},
-  SplashScreenContainer: { screen: SplashScreenContainer}
+  Setup: { screen: Setup },
+  SplashScreenContainer: { screen: SplashScreenContainer }
 },{
-  initialRouteName: 'Main',
+  initialRouteName: 'Setup',
   headerMode: 'none'
 })
 
