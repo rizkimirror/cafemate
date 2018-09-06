@@ -17,9 +17,9 @@ const Chats = (props) => {
           <Image 
             source={{uri:props.photoProfileUri}}
             style={{
-              width: responsiveSize(props.isOnline ? 7 : 8),
-              height: responsiveSize(props.isOnline ? 7 : 8),
-              borderRadius: responsiveSize(props.isOnline ? 7 : 8) / 2,
+              width: responsiveSize(props.isOnline ? 7.5 : 8),
+              height: responsiveSize(props.isOnline ? 7.5 : 8),
+              borderRadius: responsiveSize(props.isOnline ? 7.5 : 8) / 2,
               alignSelf:'center'
             }}/>
         </View>

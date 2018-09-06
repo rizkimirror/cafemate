@@ -1,21 +1,16 @@
 import React, { Component } from 'react'
-import { View, Text, StyleSheet, StatusBar, TouchableOpacity } from 'react-native'
+import { View, Text, StyleSheet, StatusBar } from 'react-native'
 import { Container, Content } from 'native-base'
 
-export default class Test extends Component{
+export default class OpenPlace extends Component{
   render(){
     return(
       <Container style={styles.container}>
         <StatusBar backgroundColor={'#2c8dfe'}/>
         <Content contentContainerStyle={styles.contentStyle}>
-
           <View style={styles.titleWrapper}>
-            <Text style={styles.whiteColor}>Testing</Text>
-            <TouchableOpacity onPress={this.props.gotoMain}>
-              <Text style={styles.whiteColor}>Go to Main</Text>
-            </TouchableOpacity>
+            <Text style={styles.whiteColor}>Open Place</Text>
           </View>
-
         </Content>
       </Container>
     )
