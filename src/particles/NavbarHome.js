@@ -12,8 +12,7 @@ export default class NavbarHome extends Component {
           <TouchableOpacity>
             <Image 
               source={{ uri: this.props.photo }}
-              style={styles.photoProfile}
-            />
+              style={styles.photoProfile}/>
           </TouchableOpacity>
         </Left>
         <Body>
@@ -44,7 +43,7 @@ const styles = StyleSheet.create({
   },
   title:{
     color: '#000',
-    fontWeight: 'bold'
+    fontFamily: 'Roboto-Bold'
   },
   icons:{
     color: '#000',
