@@ -1,5 +1,5 @@
 import React, {Component} from 'react'
-import {View, Text, Image, StyleSheet} from 'react-native'
+import {View, Text, Image, StyleSheet, TouchableOpacity} from 'react-native'
 import Entypo from 'react-native-vector-icons/Entypo'
 import {responsiveSize,responsiveFontSize} from 'react-native-rescomponent'
 // 'https://avatars1.githubusercontent.com/u/38149346?s=400&u=7d84802786839cf21eb8e5708d7278293772dc8c&v=4'
@@ -7,22 +7,30 @@ import {responsiveSize,responsiveFontSize} from 'react-native-rescomponent'
 const Peoples = (props) => {
   return(
     <View style={{alignItems:'center', padding:5}}>
-      <View style={{
-        width: responsiveSize(10),
-        height: responsiveSize(10),
-        borderRadius: responsiveSize(10) / 2,
-        backgroundColor: '#2c8dfe',
-        alignItems:'center',
-        justifyContent:'center'
-      }}>
-        <Image 
-          source={{uri: props.imageUrl}}
-          style={styles.image}/>
-      </View>
-      <Text style={styles.textNameAndAge}>{props.name}, {props.age}</Text>
+      <TouchableOpacity onPress={props.onPressImage}>
+        <View style={{
+          width: responsiveSize(10),
+          height: responsiveSize(10),
+          borderRadius: responsiveSize(10) / 2,
+          backgroundColor: '#2c8dfe',
+          alignItems:'center',
+          justifyContent:'center'
+        }}>
+          <Image 
+            source={{uri: props.imageUrl}}
+            style={styles.image}/>
+        </View>
+      </TouchableOpacity>
+      <TouchableOpacity onPress={props.onPressName}>
+        <Text style={styles.textNameAndAge}>{props.name}, {props.age}</Text>
+      </TouchableOpacity>
       <View style={styles.locationWrapper}>
-        <Entypo name={'location-pin'} style={styles.placeIcon}/>
-        <Text style={styles.location}>{props.location}</Text>
+        <TouchableOpacity onPress={props.onPressLocation}>
+          <Entypo name={'location-pin'} style={styles.placeIcon}/>
+        </TouchableOpacity>
+        <TouchableOpacity onPress={props.onPressLocation}>
+          <Text style={styles.location}>{props.location}</Text>
+        </TouchableOpacity>
       </View>
     </View>
   )

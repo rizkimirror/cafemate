@@ -1,9 +1,12 @@
 import React, {Component} from 'react'
-import { Text, StyleSheet, StatusBar, View, FlatList } from 'react-native'
-import { Container, Content} from 'native-base'
+import { Text, StyleSheet, StatusBar, View, FlatList, Image} from 'react-native'
+import { Container, Content, Toast } from 'native-base'
 import NavbarHome from '../particles/NavbarHome'
 import Peoples from '../particles/Peoples'
+import peoples from '../dummies/peoples'
 import {responsiveFontSize} from 'react-native-rescomponent'
+import OpenMap from '../particles/OpenMap'
+import OpenMatch from '../particles/OpenMatch'
 
 export default class Home extends Component{
   render(){
@@ -20,35 +23,30 @@ export default class Home extends Component{
             <FlatList
               horizontal={true}
               showsHorizontalScrollIndicator={false}
-              data={[
-                {
-                  imageUrl: 'https://lh4.googleusercontent.com/-ck_MQoFtWlk/URN0VxN5JHI/AAAAAAAADiE/APWfxmO0qw8/%25255BUNSET%25255D.jpg',
-                  name: 'Dilla',
-                  age: 18,
-                  location: 'North Jakarta'
-                },
-                {
-                  imageUrl: 'https://3.bp.blogspot.com/-0OuesfG8Awk/VvCk7qSufNI/AAAAAAAAANY/hQdj_ysZpukTBCN1Tl6NWfw4dkm4yhprA/s320/12189780_991284354248887_2502125557057687698_n.jpg',
-                  name: 'Merlynn',
-                  age: 18,
-                  location: 'North Jakarta'
-                },
-                {
-                  imageUrl: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQQeThIO2NXM0FR_0TK2akdczqdkAoEt5NAL4BlBU_Jwo-Zov6_pg',
-                  name: 'Ling',
-                  age: 18,
-                  location: 'North Jakarta'
-                },
-              ]}
+              data={peoples}
               renderItem={({item}) => (
                 <Peoples
                   imageUrl={item.imageUrl}
                   name={item.name}
                   age={item.age}
-                  location={item.location}/>
+                  location={item.location}
+                  onPressImage={() => Toast.show({
+                    text: item.imageUrl,
+                    duration:1000
+                  })}
+                  onPressName={() => Toast.show({
+                    text: `Name ${item.name} ages ${item.age}`,
+                    duration:1000
+                  })}
+                  onPressLocation={() => Toast.show({
+                    text: item.location,
+                    duration:1000
+                  })}/>
               )}
             />
           </View>
+          <OpenMap/>
+          <OpenMatch/>
         </Content>
       </Container>
     )

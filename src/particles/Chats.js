@@ -1,5 +1,5 @@
 import React, {Component} from 'react'
-import { View, Text, StyleSheet, Image, TouchableOpacity} from 'react-native'
+import { View, Text, StyleSheet, Image, TouchableHighlight} from 'react-native'
 import {responsiveSize,responsiveFontSize} from 'react-native-rescomponent'
 
 const Chats = (props) => {
@@ -14,7 +14,7 @@ const Chats = (props) => {
           alignItems:'center',
           justifyContent:'center'
         }}>
-          <TouchableOpacity>
+          <TouchableHighlight>
             <Image 
               source={{uri:props.photoProfileUri}}
               style={{
@@ -23,19 +23,25 @@ const Chats = (props) => {
                 borderRadius: responsiveSize(props.isOnline ? 7.5 : 8) / 2,
                 alignSelf:'center'
               }}/>
-          </TouchableOpacity>
+          </TouchableHighlight>
         </View>
         <View style={styles.nameAndMessage}>
-          <Text style={styles.textName}>{props.name}</Text>
-          <Text style={styles.textMessage}>{props.message}</Text>
+          <TouchableHighlight>
+            <Text style={styles.textName}>{props.name}</Text>
+          </TouchableHighlight>
+          <TouchableHighlight>
+            <Text style={styles.textMessage}>{props.message}</Text>
+          </TouchableHighlight>
         </View>
       </View>
-      <View style={styles.timeAndAmount}>
-        <Text style={styles.textTime}>{props.time}</Text>
-        <View style={styles.amountBubble}>
-          <Text style={styles.textAmount}>{props.messageAmount}</Text>
+      <TouchableHighlight>
+        <View style={styles.timeAndAmount}>
+          <Text style={styles.textTime}>{props.time}</Text>
+          <View style={styles.amountBubble}>
+            <Text style={styles.textAmount}>{props.messageAmount}</Text>
+          </View>
         </View>
-      </View>
+      </TouchableHighlight>
     </View>
   )
 }
