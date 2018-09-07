@@ -18,6 +18,7 @@ import ProfileContainer from './src/containers/ProfileContainer'
 import InterestedContainer from './src/containers/InterestedContainer'
 import IntroducingContainer from './src/containers/IntroducingContainer'
 import GenderContainer from './src/containers/GenderContainer'
+import FavofitesContainer from  './src/containers/FavoritesContainer'
 
 // Callable Screens
 import SplashScreenContainer from './src/containers/SplashScreenContainer'
@@ -38,7 +39,7 @@ const Main = createBottomTabNavigator({
           justifyContent: 'center'
         }}>
           <Entypo name={'home'} style={{ color: focused ? tintColor : "#ccc", fontSize: 24 }} />
-          <Text style={{color: focused ? tintColor : "#ccc"}}>Home</Text>
+          <Text style={{color: focused ? tintColor : "#ccc", fontFamily: 'Roboto-Regular'}}>Home</Text>
         </View>
       )
     }
@@ -57,7 +58,7 @@ const Main = createBottomTabNavigator({
           justifyContent: 'center'
         }}>
           <Ionicons name={'md-contacts'} style={{ color: focused ? tintColor : "#ccc", fontSize: 24 }} />
-          <Text style={{color: focused ? tintColor : "#ccc"}}>Friends</Text>
+          <Text style={{color: focused ? tintColor : "#ccc", fontFamily: 'Roboto-Regular'}}>Friends</Text>
         </View>
       )
     }
@@ -93,7 +94,7 @@ const Main = createBottomTabNavigator({
           justifyContent: 'center'
         }}>
           <Ionicons name={'ios-chatboxes'} style={{ color: focused ? tintColor : "#ccc", fontSize: 24 }} />
-          <Text style={{color: focused ? tintColor : "#ccc"}}>Chat</Text>
+          <Text style={{color: focused ? tintColor : "#ccc", fontFamily: 'Roboto-Regular'}}>Chat</Text>
         </View>
       )
     }
@@ -112,7 +113,7 @@ const Main = createBottomTabNavigator({
           justifyContent: 'center'
         }}>
           <MaterialIcons name={'person'} style={{ color: focused ? tintColor : "#ccc", fontSize: 24 }} />
-          <Text style={{color: focused ? tintColor : "#ccc"}}>Profile</Text>
+          <Text style={{color: focused ? tintColor : "#ccc", fontFamily: 'Roboto-Regular'}}>Profile</Text>
         </View>
       )
     }
@@ -129,9 +130,10 @@ const Main = createBottomTabNavigator({
 const Setup = StackNavigator({
   InterestedContainer: { screen: InterestedContainer },
   IntroducingContainer: { screen: IntroducingContainer },
-  GenderContainer: { screen: GenderContainer }
+  GenderContainer: { screen: GenderContainer },
+  FavofitesContainer: { screen: FavofitesContainer }
 },{
-  initialRouteName: 'InterestedContainer',
+  initialRouteName: 'FavofitesContainer',
   headerMode: 'none',
   transitionConfig: () => {
     return {
@@ -167,7 +169,7 @@ const Navigators = StackNavigator({
   Setup: { screen: Setup },
   SplashScreenContainer: { screen: SplashScreenContainer }
 },{
-  initialRouteName: 'Setup',
+  initialRouteName: 'Main',
   headerMode: 'none'
 })
 

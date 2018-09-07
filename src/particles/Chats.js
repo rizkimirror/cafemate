@@ -1,5 +1,5 @@
 import React, {Component} from 'react'
-import { View, Text, StyleSheet, Image } from 'react-native'
+import { View, Text, StyleSheet, Image, TouchableOpacity} from 'react-native'
 import {responsiveSize,responsiveFontSize} from 'react-native-rescomponent'
 
 const Chats = (props) => {
@@ -14,14 +14,16 @@ const Chats = (props) => {
           alignItems:'center',
           justifyContent:'center'
         }}>
-          <Image 
-            source={{uri:props.photoProfileUri}}
-            style={{
-              width: responsiveSize(props.isOnline ? 7.5 : 8),
-              height: responsiveSize(props.isOnline ? 7.5 : 8),
-              borderRadius: responsiveSize(props.isOnline ? 7.5 : 8) / 2,
-              alignSelf:'center'
-            }}/>
+          <TouchableOpacity>
+            <Image 
+              source={{uri:props.photoProfileUri}}
+              style={{
+                width: responsiveSize(props.isOnline ? 7.5 : 8),
+                height: responsiveSize(props.isOnline ? 7.5 : 8),
+                borderRadius: responsiveSize(props.isOnline ? 7.5 : 8) / 2,
+                alignSelf:'center'
+              }}/>
+          </TouchableOpacity>
         </View>
         <View style={styles.nameAndMessage}>
           <Text style={styles.textName}>{props.name}</Text>
