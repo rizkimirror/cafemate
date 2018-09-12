@@ -1,9 +1,10 @@
 import React, {Component} from 'react'
-import { Text, StyleSheet, StatusBar, View } from 'react-native'
+import { Text, StyleSheet, StatusBar, View, Image } from 'react-native'
 import { Container, Content, Input} from 'native-base'
 import NavbarHome from '../particles/NavbarHome'
-import { responsiveHeight, responsiveWidth, responsiveFontSize } from 'react-native-rescomponent'
+import { responsiveHeight, responsiveWidth, responsiveFontSize, responsiveSize } from 'react-native-rescomponent'
 import FontAwesome from 'react-native-vector-icons/FontAwesome'
+import brokenHeart from '../assets/icons/icon-brokenheart.png'
 import Friends from '../particles/Friends'
 
 export default class Home extends Component{
@@ -35,6 +36,13 @@ export default class Home extends Component{
                    name={'Muhammad Isa'}
                    location={'J.CO Jakarta Selatan'}
                    isOnline={true}/>
+          </View>
+          <View style={{alignSelf:'center', paddingTop: 10, alignItems: 'center'}}>
+            <Image source={brokenHeart} style={{height: responsiveSize(4.6), width: responsiveSize(5.3)}}/>
+            <View style={{paddingTop: 5, alignItems: 'center'}}>
+              <Text style={{color: '#555BFF'}}>I'm sorry, Your friendslist</Text>
+              <Text style={{color: '#555BFF'}}>just ultil here.</Text>
+            </View>
           </View>
         </Content>
       </Container>
