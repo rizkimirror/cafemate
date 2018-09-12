@@ -64,10 +64,11 @@ const styles = StyleSheet.create({
     paddingLeft: 10
   },
   textName:{
+    fontFamily: 'Roboto-Bold',
     fontSize: responsiveFontSize(2.5), 
-    fontWeight: 'bold'
   },
   textLocation:{
+    fontFamily: 'Roboto-Regular',
     fontSize: responsiveFontSize(2)
   }
 })
