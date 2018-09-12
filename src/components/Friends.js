@@ -24,24 +24,27 @@ export default class Home extends Component{
             </View>
           </View>
           <View style={{paddingVertical:5, paddingHorizontal: 10}}>
-            <Friends photoProfileUri={'https://avatars1.githubusercontent.com/u/38149346?s=400&u=7d84802786839cf21eb8e5708d7278293772dc8c&v=4'}
-                   name={'Muhammad Isa'}
-                   location={'J.CO Jakarta Selatan'}
-                   isOnline={true}/>
-            <Friends photoProfileUri={'https://avatars1.githubusercontent.com/u/38149346?s=400&u=7d84802786839cf21eb8e5708d7278293772dc8c&v=4'}
-                   name={'Muhammad Isa'}
-                   location={'J.CO Jakarta Selatan'}
-                   isOnline={false}/>
-            <Friends photoProfileUri={'https://avatars1.githubusercontent.com/u/38149346?s=400&u=7d84802786839cf21eb8e5708d7278293772dc8c&v=4'}
-                   name={'Muhammad Isa'}
-                   location={'J.CO Jakarta Selatan'}
-                   isOnline={true}/>
+            <Friends
+              photoProfileUri={'https://avatars1.githubusercontent.com/u/38149346?s=400&u=7d84802786839cf21eb8e5708d7278293772dc8c&v=4'}
+              name={'Muhammad Isa'}
+              location={'J.CO Jakarta Selatan'}
+              isOnline={true}/>
+            <Friends 
+              photoProfileUri={'https://avatars1.githubusercontent.com/u/38149346?s=400&u=7d84802786839cf21eb8e5708d7278293772dc8c&v=4'}
+              name={'Muhammad Isa'}
+              location={'J.CO Jakarta Selatan'}
+              isOnline={false}/>
+            <Friends 
+              photoProfileUri={'https://avatars1.githubusercontent.com/u/38149346?s=400&u=7d84802786839cf21eb8e5708d7278293772dc8c&v=4'}
+              name={'Muhammad Isa'}
+              location={'J.CO Jakarta Selatan'}
+              isOnline={true}/>
           </View>
           <View style={{alignSelf:'center', paddingTop: 10, alignItems: 'center'}}>
             <Image source={brokenHeart} style={{height: responsiveSize(4.6), width: responsiveSize(5.3)}}/>
             <View style={{paddingTop: 5, alignItems: 'center'}}>
-              <Text style={{color: '#555BFF'}}>I'm sorry, Your friendslist</Text>
-              <Text style={{color: '#555BFF'}}>just ultil here.</Text>
+              <Text style={{color: '#555BFF', fontFamily: 'Roboto-Regular'}}>I'm sorry, Your friendslist</Text>
+              <Text style={{color: '#555BFF', fontFamily: 'Roboto-Regular'}}>just ultil here.</Text>
             </View>
           </View>
         </Content>
